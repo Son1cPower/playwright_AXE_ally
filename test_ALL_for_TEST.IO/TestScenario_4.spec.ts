@@ -12,8 +12,8 @@ let browser: Browser
 let page: Page
 let context: BrowserContext
 const URL: string = 'https://tester.test.io/'
-const Email = 'negriystas@icloud.com'
-const Password = 'WroclaW2023!@'
+const Email = 'xxxxx'
+const Password = 'xxxxxx'
 
 
 test.describe('Playwright web page accessibility test', async () => {
