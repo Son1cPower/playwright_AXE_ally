@@ -47,11 +47,12 @@ test.describe('Playwright web page accessibility test', async () => {
 
         const activity_summary = await page.locator("a[class='testio-nav-item hidden-xs-down'] span[class='icon icon-activity mr-0']")
         await activity_summary.click();
-
+        await page.locator(".icon.icon-filter").click()
 
 
 
         const reportRes = await new AxeBuilder({ page })
+            .include(".filter-sidebar")
             .withTags([
                 'wcag2a',
                 'wcag2aa',

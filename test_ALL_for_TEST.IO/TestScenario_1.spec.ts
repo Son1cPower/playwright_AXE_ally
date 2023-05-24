@@ -29,25 +29,14 @@ test.describe('Playwright web page accessibility test', async () => {
         await injectAxe(page)
     })
 
-    test(`For Messages chat`, async () => {
+    test(`For Sign in page`, async () => {
 
 
         const EmailFild = await page.locator('#user_email');
         const PasswordFild = await page.locator('#user_password');
-        const SignInButton = await page.locator("input[value='Sign In']");
+        // const SignInButton = await page.locator("input[value='Sign In']");
         await EmailFild.fill(Email);
         await PasswordFild.fill(Password);
-        await SignInButton.click();
-
-        const url = await page.url()
-        expect(url).to.equal('https://tester.test.io/')
-
-        const logo = await page.locator("img[title='test IO']")
-        await logo.click();
-
-        const mesages_chat = await page.locator("div[aria-label='Open Intercom Messenger']")
-
-        await mesages_chat.click();
 
 
 
@@ -74,7 +63,7 @@ test.describe('Playwright web page accessibility test', async () => {
 
 
         const reportRes = await new AxeBuilder({ page })
-            .include("iframe[title='Intercom live chat'][name='intercom-messenger-frame']")
+
             .withTags([
                 'wcag2a',
                 'wcag2aa',

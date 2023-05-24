@@ -29,7 +29,7 @@ test.describe('Playwright web page accessibility test', async () => {
         await injectAxe(page)
     })
 
-    test(`For Messages chat`, async () => {
+    test(`Dashboard`, async () => {
 
 
         const EmailFild = await page.locator('#user_email');
@@ -45,36 +45,13 @@ test.describe('Playwright web page accessibility test', async () => {
         const logo = await page.locator("img[title='test IO']")
         await logo.click();
 
-        const mesages_chat = await page.locator("div[aria-label='Open Intercom Messenger']")
-
-        await mesages_chat.click();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 
         const reportRes = await new AxeBuilder({ page })
-            .include("iframe[title='Intercom live chat'][name='intercom-messenger-frame']")
+            .include(".container-fluid.main-content")
             .withTags([
                 'wcag2a',
                 'wcag2aa',
@@ -99,7 +76,9 @@ test.describe('Playwright web page accessibility test', async () => {
 
 
         // console.log(reportRes)
-        console.log('')
+
+
+
     })
 
 

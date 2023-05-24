@@ -64,9 +64,11 @@ test.describe('Playwright web page accessibility test', async () => {
         const Search_for_your_operating_system = await modal_content.locator("#device_search")
         await Search_for_your_operating_system.fill("Windows");
 
+        const windows_operating_system = await modal_content.locator("#react-autowhatever-1")
+        await windows_operating_system.click();
 
 
-        const osVersion = await modal_content.locator("b[role='presentation']")
+        const osVersion = await modal_content.locator(".select2-selection__placeholder")
         await osVersion.click()
         const windows_11_version = await modal_content.locator("#select2-os_version-result-ybbi-566")
         await windows_11_version.click()

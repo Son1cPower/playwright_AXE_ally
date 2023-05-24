@@ -29,7 +29,7 @@ test.describe('Playwright web page accessibility test', async () => {
         await injectAxe(page)
     })
 
-    test(`For Settings > Profile`, async () => {
+    test(`Fornavbar`, async () => {
 
 
         const EmailFild = await page.locator('#user_email');
@@ -39,34 +39,11 @@ test.describe('Playwright web page accessibility test', async () => {
         await PasswordFild.fill(Password);
         await SignInButton.click();
 
-        let url = await page.url()
-        expect(url).to.equal('https://tester.test.io/')
+        // const url = await page.url()
+        // expect(url).to.equal('https://tester.test.io/')
 
         const logo = await page.locator("img[title='test IO']")
         await logo.click();
-
-        const settings = await page.locator("a[class='testio-nav-item hidden-xs-down pb-0'] span[class='icon icon-cog mr-0']")
-        await settings.click();
-
-        url = await page.url()
-        expect(url).to.equal('https://tester.test.io/account/profile')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -74,6 +51,7 @@ test.describe('Playwright web page accessibility test', async () => {
 
 
         const reportRes = await new AxeBuilder({ page })
+            .include(".testio-navbar")
             .withTags([
                 'wcag2a',
                 'wcag2aa',
@@ -98,7 +76,9 @@ test.describe('Playwright web page accessibility test', async () => {
 
 
         // console.log(reportRes)
-        console.log('')
+
+
+
     })
 
 

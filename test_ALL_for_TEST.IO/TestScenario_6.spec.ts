@@ -47,7 +47,8 @@ test.describe('Playwright web page accessibility test', async () => {
 
         const devices = await page.locator("a[class='testio-nav-item hidden-xs-down'] span[class='icon icon-devices mr-0']")
         await devices.click();
-
+        const mesages_chat = await page.locator("div[aria-label='Open Intercom Messenger']")
+        expect(await mesages_chat).to.exist
 
 
 
@@ -73,6 +74,7 @@ test.describe('Playwright web page accessibility test', async () => {
 
 
         const reportRes = await new AxeBuilder({ page })
+
             .withTags([
                 'wcag2a',
                 'wcag2aa',
@@ -81,7 +83,8 @@ test.describe('Playwright web page accessibility test', async () => {
                 'wcag21a',
                 'wcag22aa'])
             .withRules(['html-lang', 'image-alt', 'aria-allowed-attr', 'tab-index', 'area-alt', 'aria-allowed-attr', 'aria-command-name', 'aria-hidden-body', 'aria-hidden-focus', 'aria-input-field-name', 'aria-meter-name', 'aria-progressbar-name', 'aria-required-attr', 'aria-required-children', 'aria-required-parent', 'aria-roledescription', 'aria-roles', 'aria-toggle-field-name', 'aria-tooltip-name', 'aria-valid-attr-value', 'aria-valid-attr', 'audio-caption', 'blink', 'button-name', 'bypass', 'color-contrast', 'definition-list', 'dlitem', 'document-title', 'duplicate-id-active', 'duplicate-id-aria', 'duplicate-id', 'form-field-multiple-labels', 'frame-focusable-content', 'frame-title-unique', 'frame-title', 'html-has-lang', 'html-lang-valid', 'html-xml-lang-mismatch', 'image-alt', 'input-button-name', 'input-image-alt', 'label', 'link-in-text-block', 'link-name', 'list', 'listitem', 'marquee', 'meta-refresh', 'meta-viewport', 'nested-interactive', 'no-autoplay-audio', 'object-alt', 'role-img-alt', 'scrollable-region-focusable', 'select-name', 'server-side-image-map', 'svg-img-alt', 'td-headers-attr', 'th-has-data-cells', 'valid-lang', 'video-caption', 'autocomplete-valid', 'avoid-inline-spacing', 'target-size'])
-
+            .exclude('#top-nav-bar')
+            .exclude('#main-sidebar')
             .options({
                 preload: true,
                 iframes: true,
