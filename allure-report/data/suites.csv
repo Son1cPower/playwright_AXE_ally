@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon May 29 11:01:15 EEST 2023","Mon May 29 11:01:28 EEST 2023","13828","","TestScenario_12.spec.ts","Playwright web page accessibility test","","","Settings > Notifications",""

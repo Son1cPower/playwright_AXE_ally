@@ -13,7 +13,7 @@ let page: Page
 let context: BrowserContext
 const URL: string = 'https://tester.test.io/'
 const Email = 'xxxxx'
-const Password = 'xxxxxx'
+const Password = 'xxxxx'
 
 
 test.describe('Playwright web page accessibility test', async () => {

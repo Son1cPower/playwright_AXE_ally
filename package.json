@@ -12,7 +12,7 @@
     "test": "tsc --incremental -p tests/tsconfig.json && playwright test -c tests/tests-out",
     "tests": "npx playwright test -c tests/UI/ && open-cli axe-core/reports/artifacts/AxiosResultsTest.json.html",
     "report": "npx rimraf allure-report allure-results playwright-report tests/tests-out && tsc --incremental -p tests/tsconfig.json && npx playwright test -c tests/UI/ --reporter=line,allure-playwright && allure generate allure-results -o allure-report --clean && npx allure open ./allure-report",
-    "generate_report": "tsc --incremental -p tests/tsconfig.json && npx playwright test -c tests/UI/ --reporter=line,allure-playwright && allure generate allure-results -o allure-report --clean && npx allure open ./allure-report",
+    "generate_report": "tsc --incremental -p tests/tsconfig.json && npx playwright test -c StasTest/ --reporter=line,allure-playwright && allure generate allure-results -o allure-report --clean && npx allure open ./allure-report",
     "clean": "npx rimraf allure-report allure-results tests/tests-out playwright-report test-results",
     "clean_packages": "npx rimraf node_modules",
     "open:report": "open-cli axe-core/reports/artifacts/AxiosResultsTest.json.html",
